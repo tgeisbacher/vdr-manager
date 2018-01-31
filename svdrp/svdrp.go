@@ -23,7 +23,7 @@ func collectDataFromServer(addr, command string) (string, error) {
 	}
 
 	// sending command
-	fmt.Fprint(conn, command)
+	fmt.Fprint(conn, command+"\n")
 
 	// receiving answer from server
 	response := ""
@@ -31,7 +31,7 @@ func collectDataFromServer(addr, command string) (string, error) {
 	s.Split(bufio.ScanLines)
 	for s.Scan() {
 		line := s.Text()
-		response = response + line
+		response = response + line + "\n"
 		if isLastLine(line) == true {
 			break
 		}
