@@ -8,7 +8,7 @@ import (
 
 func main() {
 
-	channels, err := svdrp.ListAllChannels("10.0.0.198:6419")
+	channels, err := svdrp.ListAllChannels("vdr.dd:6419")
 
 	if err != nil {
 		fmt.Println("ERROR:", err)

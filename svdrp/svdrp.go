@@ -8,23 +8,24 @@ import (
 )
 
 func collectDataFromServer(addr, command string) (string, error) {
-
 	conn, err := net.Dial("tcp", addr)
 	if err != nil {
 		return "", fmt.Errorf("error while connecting to server '%s', error: %v", addr, err)
 	}
 	defer conn.Close()
-
 	// reading welcome-message from server
 	fromServReader := bufio.NewReader(conn)
-	_, err = fromServReader.ReadString('\n')
+	welcome := ""
+	welcome, err = fromServReader.ReadString('\n')
 	if err != nil {
 		return "", fmt.Errorf("could not read welcome-message from server, error: %v", err)
 	}
-
+	welcome = strings.TrimSpace(welcome)
+	if strings.ToLower(welcome) == "access denied!" {
+		return "", fmt.Errorf("Could not connect to %s: Access denied!", addr)
+	}
 	// sending command
 	fmt.Fprint(conn, command+"\n")
-
 	// receiving answer from server
 	response := ""
 	s := bufio.NewScanner(fromServReader)
