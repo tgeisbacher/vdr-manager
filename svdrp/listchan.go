@@ -8,9 +8,9 @@ import (
 )
 
 type channel struct {
-	position int
-	name     string
-	group    string
+	Position int
+	Name     string
+	Group    string
 }
 
 func ListAllChannels(addr string) ([]channel, error) {
@@ -50,13 +50,13 @@ func parseListChannelsResponse(response string) []channel {
 		}
 
 		vdrChannel := channel{}
-		vdrChannel.position = position
-		//TODO: hr - fernsehen
+		vdrChannel.Position = position
+		//TODO: hr - fernsehen, n-tv
 		fullChannelName := ""
 		for i := 1; i < len(partWithPositionAndName); i++ {
 			fullChannelName = fullChannelName + partWithPositionAndName[i] + " "
 		}
-		vdrChannel.name = strings.TrimSpace(fullChannelName)
+		vdrChannel.Name = strings.TrimSpace(fullChannelName)
 
 		// TODO: groupName auslesen
 		vdrChannels = append(vdrChannels, vdrChannel)
