@@ -13,22 +13,22 @@ func TestParseListMultipleChannelsResponse(t *testing.T) {
 		t.Error("Length of parsedChannels should be 3 but is ", len(parsedChannels))
 	}
 
-	if parsedChannels[0].name != "ORF1 HD" {
-		t.Errorf("Channelname should be ORF1 HD but is '%s'", parsedChannels[0].name)
+	if parsedChannels[0].Name != "ORF1 HD" {
+		t.Errorf("Channelname should be ORF1 HD but is '%s'", parsedChannels[0].Name)
 	}
-	if parsedChannels[0].position != 1 {
-		t.Error("Channelposition should be 1 but is", parsedChannels[0].position)
+	if parsedChannels[0].Position != 1 {
+		t.Error("Channelposition should be 1 but is", parsedChannels[0].Position)
 	}
 	/*if parsedChannels[0].group != "ORF" {
 		t.Error("Channelgroup should be ORF but is", parsedChannels[0].group)
 	}
 	*/
-	if parsedChannels[1].name != "ORF2St HD" {
-		t.Error("Channelname should be ORF2St HD but is ", parsedChannels[1].name)
+	if parsedChannels[1].Name != "ORF2St HD" {
+		t.Error("Channelname should be ORF2St HD but is ", parsedChannels[1].Name)
 	}
 
-	if parsedChannels[1].position != 2 {
-		t.Error("Channelposition should be 2 but is", parsedChannels[1].position)
+	if parsedChannels[1].Position != 2 {
+		t.Error("Channelposition should be 2 but is", parsedChannels[1].Position)
 	}
 
 	/*	if parsedChannels[1].group != "ORF" {
@@ -36,12 +36,12 @@ func TestParseListMultipleChannelsResponse(t *testing.T) {
 	}*/
 
 	//Testing third line
-	if parsedChannels[2].name != "DMAX" {
-		t.Error("Channelname should be DMAX but is ", parsedChannels[1].name)
+	if parsedChannels[2].Name != "DMAX" {
+		t.Error("Channelname should be DMAX but is ", parsedChannels[1].Name)
 	}
 
-	if parsedChannels[2].position != 15 {
-		t.Error("Channelposition should be 15 but is", parsedChannels[1].position)
+	if parsedChannels[2].Position != 15 {
+		t.Error("Channelposition should be 15 but is", parsedChannels[1].Position)
 	}
 
 	/*	if parsedChannels[1].group != "ORF" {

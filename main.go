@@ -10,7 +10,24 @@ import (
 
 func main() {
 	_, err := svdrp.ListAllChannels("vdr.dd:6419")
+	if err != nil {
+		fmt.Println("ERROR:", err)
+	}
 
+	EPGNow, err := svdrp.ListEPGNow("vdr.dd:6419")
+	if err != nil {
+		fmt.Println("ERROR:", err)
+	}
+	for _, data := range EPGNow {
+		fmt.Println("ChannelID: ", data.ChannelID)
+		fmt.Println("Channelname: ", data.ChannelName)
+		fmt.Println("Showname: ", data.ShowName)
+		fmt.Println("Starttime:", data.StartTime, "Duration:", data.Duration)
+		fmt.Println("Subtitle: ", data.Subtitle)
+		fmt.Println("")
+
+	}
+	_, err = svdrp.ListEPGNow("vdr.dd:6419")
 	if err != nil {
 		fmt.Println("ERROR:", err)
 	}
