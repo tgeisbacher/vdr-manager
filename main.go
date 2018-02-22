@@ -33,6 +33,7 @@ func main() {
 	}
 
 	http.HandleFunc("/", startPageHandler)
+	http.HandleFunc("/webshop", webshopHandler)
 	err = http.ListenAndServe(":34973", nil) // listen to all who select the right port
 	if err != nil {
 		fmt.Println("ERROR:", err)
@@ -71,4 +72,13 @@ func renderHTML(response http.ResponseWriter, content string) {
 
 	fmt.Fprintln(response, string(htmlHeader)+content+string(htmlFooter))
 
+}
+
+func webshopHandler(response http.ResponseWriter, r *http.Request) {
+	htmlWebshop, err := ioutil.ReadFile("html/webshop.html")
+	if err != nil {
+		fmt.Fprintln(response, "Could not read webshop.html")
+	}
+
+	fmt.Fprintln(response, string(htmlWebshop))
 }

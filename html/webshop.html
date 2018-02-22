@@ -1,0 +1,21 @@
+<html ng-app>
+    <head>
+        <meta charset="utf8" />
+        <title>This is AngularJS</title>
+        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <h1>AngularJS Hello World!</h1>
+    </head>
+    <body ng-init="pizza = ['Pizza Mageritha', 'Pizza Tonno', 'Pizza Caricosa']">
+        <table class="table">
+            <tr ng-repeat="article in pizza | filter: search">
+                <td>{{article}}</td>
+            </tr>
+            <tr ng-repeat="getranke in ['Fanta', 'Cola', 'Sprite']">
+                    <td>{{getranke}}</td>
+            </tr>
+        </table>
+        <input type="text" ng-model="search">
+        <p>Du suchst gerade nach: {{search}}</p>
+        <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.js"></script>
+    </body>
+</html>
