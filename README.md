@@ -1,2 +1,3 @@
 # vdr-manager
-This is VDR-Manager Backend.
+This is VDR-Manager-Backend.
+
